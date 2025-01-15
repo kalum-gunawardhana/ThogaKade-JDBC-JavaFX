@@ -28,8 +28,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbCustomer" layoutX="182.0" layoutY="9.0" onAction="#cbCustomerOnAction" prefWidth="150.0" promptText="Select Customer" style="-fx-background-color: #1e81b0;" />
-      <ComboBox fx:id="cbItem" layoutX="22.0" layoutY="10.0" onAction="#cbItemOnAction" prefWidth="150.0" promptText="Select Item" style="-fx-background-color: #1e81b0;" />
+      <ComboBox fx:id="cbCustomer" layoutX="208.0" layoutY="10.0" onAction="#cbCustomerOnAction" prefHeight="26.0" prefWidth="182.0" promptText="Select Customer" style="-fx-background-color: #1e81b0;" />
+      <ComboBox fx:id="cbItem" layoutX="22.0" layoutY="10.0" onAction="#cbItemOnAction" prefHeight="26.0" prefWidth="172.0" promptText="Select Item" style="-fx-background-color: #1e81b0;" />
       <Label layoutX="426.0" layoutY="28.0" text="Date" textFill="#1e81b0">
          <font>
             <Font name="System Bold Italic" size="14.0" />
@@ -40,26 +40,48 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDes" layoutX="22.0" layoutY="98.0" prefHeight="27.0" prefWidth="305.0" promptText="Description" />
-      <TextField fx:id="txtUniPri" layoutX="21.0" layoutY="143.0" prefHeight="27.0" prefWidth="306.0" promptText="Unit Price" />
-      <TextField fx:id="txtCusName" layoutX="23.0" layoutY="53.0" prefHeight="27.0" prefWidth="306.0" promptText="Customer" />
-      <TableView layoutX="23.0" layoutY="187.0" prefHeight="200.0" prefWidth="306.0">
-        <columns>
-          <TableColumn fx:id="colDes" prefWidth="176.0000057220459" text="Description" />
-          <TableColumn fx:id="colPrice" prefWidth="85.5999755859375" text="Price" />
-            <TableColumn fx:id="colQty" prefWidth="45.5999755859375" text="Qty" />
-        </columns>
+      <TextField fx:id="txtDes" layoutX="22.0" layoutY="98.0" prefHeight="27.0" prefWidth="370.0" promptText="Description" />
+      <TextField fx:id="txtUniPri" layoutX="21.0" layoutY="143.0" prefHeight="27.0" prefWidth="370.0" promptText="Unit Price" />
+      <TextField fx:id="txtCusName" layoutX="23.0" layoutY="53.0" prefHeight="27.0" prefWidth="370.0" promptText="Customer" />
+      <TableView fx:id="tblOrders" layoutX="23.0" layoutY="187.0" prefHeight="200.0" prefWidth="369.0">
+         <columns>
+            <TableColumn fx:id="colCode" prefWidth="44.79998588562012" text="Code" />
+            <TableColumn fx:id="colDes" prefWidth="163.20001983642578" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="42.39996337890625" text="Qty" />
+            <TableColumn fx:id="colPrice" prefWidth="64.0" text="Price" />
+            <TableColumn fx:id="colTotal" prefWidth="54.4000183105469" text="Total" />
+         </columns>
       </TableView>
-      <Button layoutX="220.0" layoutY="408.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" style="-fx-background-color: #1e81b0;" text="Place" textFill="WHITE">
+      <Button layoutX="284.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" style="-fx-background-color: #1e81b0;" text="Place" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="287.0" layoutY="408.0" mnemonicParsing="false" onAction="#btnCardOnAction" style="-fx-background-color: #1e81b0;" text="Card" textFill="WHITE">
+      <Button layoutX="344.0" layoutY="407.0" mnemonicParsing="false" onAction="#btnCardOnAction" style="-fx-background-color: #1e81b0;" text="Card" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="txtQty" layoutX="23.0" layoutY="409.0" prefHeight="27.0" prefWidth="177.0" promptText="Quantity" />
+      <TextField fx:id="txtQty" layoutX="23.0" layoutY="407.0" prefHeight="27.0" prefWidth="238.0" promptText="Quantity" />
+      <Label layoutX="426.0" layoutY="400.0" text="Order ID" textFill="#1e81b0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="493.0" layoutY="400.0" prefHeight="20.0" prefWidth="69.0" textFill="#1e81b0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="718.0" layoutY="401.0" text="Total" textFill="#1e81b0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" layoutX="762.0" layoutY="400.0" prefHeight="20.0" prefWidth="70.0" text="0.00" textFill="#1e81b0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
