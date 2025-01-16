@@ -51,8 +51,6 @@ public class OrderController {
             PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement("select * from item where code='" + code + "'");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                /*String des=resultSet.getString("description");
-                Double pri=resultSet.getDouble("unitPrice");*/
                 Item item = new Item(null, resultSet.getString("description"), resultSet.getDouble("unitPrice"), null);
                 return item;
             }
@@ -67,8 +65,6 @@ public class OrderController {
             PreparedStatement preparedStatement = DBConnection.getInstance().getConnection().prepareStatement("select * from customer where id='" + id + "'");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
-                /*String des=resultSet.getString("description");
-                Double pri=resultSet.getDouble("unitPrice");*/
                 Customer customer = new Customer(null, resultSet.getString("name"), null, null);
                 return customer;
             }
@@ -163,7 +159,6 @@ public class OrderController {
                 statement.setInt(1, orderDetail.getQty());
                 statement.setString(2, orderDetail.getItemCode());
 
-                // Execute each update
                 int result = statement.executeUpdate();
                 if (result <= 0) {
                     return false;

@@ -58,16 +58,10 @@ public class OrderFormController implements Initializable {
         );
         time.setCycleCount(Animation.INDEFINITE);
         time.play();
-
     }
 
     public void loadCustomerCombo(){
         ObservableList<String> customerCombo = OrderController.loadCustomerCombo();
-
-        /*for (String id : customerCombo) {
-            cbCustomer.addItem(id);
-        }*/
-
         cbCustomer.setItems(customerCombo);
     }
 
@@ -84,41 +78,6 @@ public class OrderFormController implements Initializable {
         setOrderIdLabel();
     }
 
-    /*public ArrayList<OrderDetail> orderDetails = new ArrayList<>();
-    public void btnPlaceOnAction(ActionEvent actionEvent) {
-        for(Object obList : observableList){
-            orderDetails.add((OrderDetail) obList);
-        }
-
-
-        orderDetails.add(new OrderDetail(
-                lblOrderId.getText(),
-                cbItem.getSelectionModel().getSelectedItem().toString(),
-                Integer.parseInt(txtQty.getText()),
-                Double.parseDouble(txtUniPri.getText())
-        ));
-
-        Order order = new Order(
-                lblOrderId.getText(),
-                lblDate.getText(),
-                cbCustomer.getSelectionModel().getSelectedItem().toString(),
-                orderDetails
-        );
-
-        if (OrderController.placeOrder(order)) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success");
-            alert.setHeaderText("Order Placed Successfully");
-            alert.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Failed to Place Order");
-            alert.show();
-        }
-        observableList.clear();
-    }*/
-
     public ObservableList<OrderTable> observableList = FXCollections.observableArrayList();
     public void btnCardOnAction(ActionEvent actionEvent) {
         boolean stock = OrderController.checkAvailableStock(cbItem.getSelectionModel().getSelectedItem().toString(), Integer.valueOf(txtQty.getText()));
@@ -134,7 +93,6 @@ public class OrderFormController implements Initializable {
             colPrice.setCellValueFactory(new PropertyValueFactory<>("qty"));
             colQty.setCellValueFactory(new PropertyValueFactory<>("price"));
             colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-
 
             int index = observableList.indexOf(new OrderTable(
                     cbItem.getSelectionModel().getSelectedItem().toString(),
@@ -163,7 +121,6 @@ public class OrderFormController implements Initializable {
             }
             setTotal();
             txtQty.clear();
-            //System.out.println(observableList);
         }
     }
 
@@ -174,7 +131,6 @@ public class OrderFormController implements Initializable {
             OrderDetail orderDetail = new OrderDetail(lblOrderId.getText(),obList.getCode(),obList.getQty(),obList.getPrice());
             orderDetails.add(orderDetail);
         }
-
 
         Order order = new Order(
                 lblOrderId.getText(),
@@ -188,6 +144,8 @@ public class OrderFormController implements Initializable {
             alert.setTitle("Success");
             alert.setHeaderText("Order Placed Successfully");
             alert.show();
+
+            setOrderIdLabel();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -214,7 +172,6 @@ public class OrderFormController implements Initializable {
         String lastOrderId = OrderController.getLastOrderId();
         Integer substring = Integer.valueOf(lastOrderId.substring(2,4))+1;
         String orderId = "D0"+substring;
-        //System.out.println(substring);
         lblOrderId.setText(orderId);
     }
 
